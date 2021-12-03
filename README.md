@@ -43,9 +43,18 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
     
 * Training and testing 
 
-  The training and testing settings are written in the script, including the selection of datasets and models.    
+  * The training and testing settings are written in the script, including the selection of datasets and models.    
   ```
   sh autorun.sh
+  ```
+  * If directly run train.py, please undo the following code.
+  ```
+  if __name__ == '__main__':
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+    os.environ.setdefault('RANK', '0')
+    os.environ.setdefault('WORLD_SIZE', '1')
+    os.environ.setdefault('MASTER_ADDR', '127.0.0.1')
+    os.environ.setdefault('MASTER_PORT', '29556')
   ```
   
 ## Citation
