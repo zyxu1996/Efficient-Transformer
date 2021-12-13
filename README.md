@@ -44,29 +44,29 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
 * Training
 
   * The training and testing settings are written in the script, including the selection of datasets and models.    
-  ```
-  sh autorun.sh
-  ```
+    ```
+    sh autorun.sh
+    ```
   * If directly run train.py, please undo the following code.
-  ```
-  if __name__ == '__main__':
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
-    os.environ.setdefault('RANK', '0')
-    os.environ.setdefault('WORLD_SIZE', '1')
-    os.environ.setdefault('MASTER_ADDR', '127.0.0.1')
-    os.environ.setdefault('MASTER_PORT', '29556')
-  ```
+    ```
+    if __name__ == '__main__':
+      os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+      os.environ.setdefault('RANK', '0')
+      os.environ.setdefault('WORLD_SIZE', '1')
+      os.environ.setdefault('MASTER_ADDR', '127.0.0.1')
+      os.environ.setdefault('MASTER_PORT', '29556')
+    ```
 * Testing
   * Generating the final results and visulizing the prediction.   
-  ```
-  cd ./work_dir/your_work
-  ```
-  * Do remember undo the test command in `sh autorun.sh`. And change the information of test command as the same as information in train command.   
-  `CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29506 test.py --dataset vaihingen --val_batchsize 16 --models swinT --head mlphead --crop_size 512 512 --save_dir work_dir --base_dir ../../ --information num1` 
+    ```
+    cd ./work_dir/your_work
+    ```
+  * Do remember undo the test command in `sh autorun.sh`. And change the `--information num1` of testing command as the same as the information in training command.   
+    `CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29506 test.py --dataset vaihingen --val_batchsize 16 --models swinT --head mlphead --crop_size 512 512 --save_dir work_dir --base_dir ../../ --information num1` 
   * Then run the script autorun.sh.  
-  ```
-  sh autorun.sh
-  ```
+    ```
+    sh autorun.sh
+    ```
   
 ## Citation
 ```
