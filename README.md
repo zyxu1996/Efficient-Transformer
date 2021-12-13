@@ -56,6 +56,14 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
     os.environ.setdefault('MASTER_ADDR', '127.0.0.1')
     os.environ.setdefault('MASTER_PORT', '29556')
   ```
+  * Generating the final results and visulizing the prediction.   
+  ```
+  cd ./work_dir/your_work
+  ```
+  * Do remember undo the test command in `sh autorun.sh`. And change the information of test command as the same as information in train command.  
+  ```
+  sh autorun.sh
+  ```
   
 ## Citation
 ```
