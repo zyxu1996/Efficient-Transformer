@@ -41,7 +41,7 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
     Swin: `ImageNet-1K`, `ImageNet-22K` and `ADE20K Semantic Segmentation` pretrained models are used.  
     Rest: `ImageNet-1K` pretrained models are used.  
     
-* Training and testing 
+* Training
 
   * The training and testing settings are written in the script, including the selection of datasets and models.    
   ```
@@ -56,11 +56,13 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
     os.environ.setdefault('MASTER_ADDR', '127.0.0.1')
     os.environ.setdefault('MASTER_PORT', '29556')
   ```
+* Testing
   * Generating the final results and visulizing the prediction.   
   ```
   cd ./work_dir/your_work
   ```
-  * Do remember undo the test command in `sh autorun.sh`. And change the information of test command as the same as information in train command.  
+  * Do remember undo the test command in `sh autorun.sh`. And change the information of test command as the same as information in train command. 
+  `CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29506 test.py --dataset vaihingen --val_batchsize 16 --models swinT --head mlphead --crop_size 512 512 --save_dir work_dir --base_dir ../../ --information num1` 
   ```
   sh autorun.sh
   ```
