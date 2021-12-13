@@ -63,6 +63,7 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
   ```
   * Do remember undo the test command in `sh autorun.sh`. And change the information of test command as the same as information in train command.   
   `CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29506 test.py --dataset vaihingen --val_batchsize 16 --models swinT --head mlphead --crop_size 512 512 --save_dir work_dir --base_dir ../../ --information num1` 
+  Then run the script autorun.sh.  
   ```
   sh autorun.sh
   ```
