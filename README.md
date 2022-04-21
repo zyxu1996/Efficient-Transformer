@@ -61,7 +61,7 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
     ```
     cd ./work_dir/your_work
     ```
-  * Do remember undo the test command in `sh autorun.sh`. And change the `--information num1` of testing command as the same as the information in training command.   
+  * Do remember undo the test command in `sh autorun.sh`. And keep the `--information num1` in testing command is same as the information in training command.   
     `CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch --nproc_per_node=1 --master_port 29506 test.py --dataset vaihingen --val_batchsize 16 --models swinT --head mlphead --crop_size 512 512 --save_dir work_dir --base_dir ../../ --information num1` 
   * Then run the script autorun.sh.  
     ```
@@ -82,6 +82,9 @@ We propose an Efficient Transformer combined with an efficient backbone (ref to 
 }
 ```
 
+## Other Links
+* [HRCNet: High-Resolution Context Extraction Network for Semantic Segmentation of Remote Sensing Images](https://github.com/zyxu1996/HRCNet-High-Resolution-Context-Extraction-Network)
+* [CCTNet: Coupled CNN and Transformer Network for Crop Segmentation of Remote Sensing Images](https://github.com/zyxu1996/CCTNet)
     
     
   
